@@ -11,7 +11,7 @@ import io.netty.util.CharsetUtil;
 public class HandlerServerHello extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        //super.channelRead(ctx, msg);
+//        super.channelRead(ctx, msg);
         //处理数据，并反馈到客户端
         ByteBuf in = (ByteBuf) msg;
         System.out.println("收到消息：" + in.toString(CharsetUtil.UTF_8));
@@ -22,7 +22,7 @@ public class HandlerServerHello extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        //super.exceptionCaught(ctx, cause);
+        super.exceptionCaught(ctx, cause);
         cause.printStackTrace();
         ctx.close();
     }
